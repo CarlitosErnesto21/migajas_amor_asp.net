@@ -210,3 +210,4 @@ C:\Users\ernes\Documents\MÓDULOS\Construcción de Aplicaciones Web en ASP.NET\m
 C:\Users\ernes\Documents\MÓDULOS\Construcción de Aplicaciones Web en ASP.NET\migajas_amor.app\migajas_amor.app\obj\Debug\net9.0\migajas_amor.app.pdb
 C:\Users\ernes\Documents\MÓDULOS\Construcción de Aplicaciones Web en ASP.NET\migajas_amor.app\migajas_amor.app\obj\Debug\net9.0\migajas_amor.app.genruntimeconfig.cache
 C:\Users\ernes\Documents\MÓDULOS\Construcción de Aplicaciones Web en ASP.NET\migajas_amor.app\migajas_amor.app\obj\Debug\net9.0\ref\migajas_amor.app.dll
+C:\Users\ernes\Documents\MÓDULOS\Construcción de Aplicaciones Web en ASP.NET\migajas_amor.app\migajas_amor.app\obj\Debug\net9.0\migajas_amor.app.sourcelink.json
