@@ -1,5 +1,6 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\Images\logo.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -61,7 +62,6 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\Images\logo.png
 C:\Users\ernes\Documents\MÓDULOS\Construcción de Aplicaciones Web en ASP.NET\migajas_amor.app\migajas_amor.app\wwwroot\css\site.css
 C:\Users\ernes\Documents\MÓDULOS\Construcción de Aplicaciones Web en ASP.NET\migajas_amor.app\migajas_amor.app\wwwroot\favicon.ico
 C:\Users\ernes\Documents\MÓDULOS\Construcción de Aplicaciones Web en ASP.NET\migajas_amor.app\migajas_amor.app\wwwroot\js\site.js
