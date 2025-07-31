@@ -44,7 +44,7 @@
               "RelativeDocumentMoniker": "migajas_amor.app\\Controllers\\AccesoController.cs",
               "ToolTip": "C:\\Users\\ernes\\Documents\\M\u00D3DULOS\\Construcci\u00F3n de Aplicaciones Web en ASP.NET\\migajas_amor.app\\migajas_amor.app\\Controllers\\AccesoController.cs",
               "RelativeToolTip": "migajas_amor.app\\Controllers\\AccesoController.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAqwFIAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAuwFIAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-31T14:47:40.023Z",
               "EditorCaption": ""
@@ -59,8 +59,7 @@
               "RelativeToolTip": "migajas_amor.app\\Models\\MigajasAmorContext.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T14:58:52.002Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-31T14:58:52.002Z"
             },
             {
               "$type": "Document",
@@ -72,8 +71,7 @@
               "RelativeToolTip": "migajas_amor.app\\Models\\Producto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T14:24:29.642Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-31T14:24:29.642Z"
             },
             {
               "$type": "Document",
@@ -109,8 +107,7 @@
               "RelativeToolTip": "migajas_amor.app\\Controllers\\ProductosController.cs",
               "ViewState": "AgIAAHwAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T13:54:32.247Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-31T13:54:32.247Z"
             }
           ]
         }
