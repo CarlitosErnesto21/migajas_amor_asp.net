@@ -45,7 +45,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Acceso}/{action=Index}/{id?}")
+    pattern: "{controller=Acceso}/{action=Index}/{id?}") //cambio temporal para que no se rompa la app
     .WithStaticAssets();
 
 app.Run();

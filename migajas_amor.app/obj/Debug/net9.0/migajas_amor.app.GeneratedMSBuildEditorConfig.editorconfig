@@ -32,12 +32,56 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ernes/Documents/MÓDULOS/Construcción de Aplicaciones Web en ASP.NET/migajas_amor.app/migajas_amor.app/Views/Acceso/ListUsuarioRol.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXExpc3RVc3VhcmlvUm9sLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ernes/Documents/MÓDULOS/Construcción de Aplicaciones Web en ASP.NET/migajas_amor.app/migajas_amor.app/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ernes/Documents/MÓDULOS/Construcción de Aplicaciones Web en ASP.NET/migajas_amor.app/migajas_amor.app/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ernes/Documents/MÓDULOS/Construcción de Aplicaciones Web en ASP.NET/migajas_amor.app/migajas_amor.app/Views/Productos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ernes/Documents/MÓDULOS/Construcción de Aplicaciones Web en ASP.NET/migajas_amor.app/migajas_amor.app/Views/Productos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ernes/Documents/MÓDULOS/Construcción de Aplicaciones Web en ASP.NET/migajas_amor.app/migajas_amor.app/Views/Productos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ernes/Documents/MÓDULOS/Construcción de Aplicaciones Web en ASP.NET/migajas_amor.app/migajas_amor.app/Views/Productos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ernes/Documents/MÓDULOS/Construcción de Aplicaciones Web en ASP.NET/migajas_amor.app/migajas_amor.app/Views/Productos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ernes/Documents/MÓDULOS/Construcción de Aplicaciones Web en ASP.NET/migajas_amor.app/migajas_amor.app/Views/Proveedores/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ernes/Documents/MÓDULOS/Construcción de Aplicaciones Web en ASP.NET/migajas_amor.app/migajas_amor.app/Views/Proveedores/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ernes/Documents/MÓDULOS/Construcción de Aplicaciones Web en ASP.NET/migajas_amor.app/migajas_amor.app/Views/Proveedores/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ernes/Documents/MÓDULOS/Construcción de Aplicaciones Web en ASP.NET/migajas_amor.app/migajas_amor.app/Views/Proveedores/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ernes/Documents/MÓDULOS/Construcción de Aplicaciones Web en ASP.NET/migajas_amor.app/migajas_amor.app/Views/Proveedores/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ernes/Documents/MÓDULOS/Construcción de Aplicaciones Web en ASP.NET/migajas_amor.app/migajas_amor.app/Views/Shared/Error.cshtml]

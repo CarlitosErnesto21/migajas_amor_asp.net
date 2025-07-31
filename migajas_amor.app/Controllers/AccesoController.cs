@@ -73,5 +73,22 @@ namespace migajas_amor.app.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Acceso");
         }
+
+        public async Task<IActionResult> ListUsuarioRol()
+        {
+            var usuarios = await _context.Usuarios
+                .Select(u => new UsuarioRol
+                {
+                    UsuarioId = u.Id,
+                    Login = u.Login,
+                    Roles = (from rlsa in _context.Rolesasignados
+                             join r in _context.Roles on rlsa.RolId equals r.Id
+                             where rlsa.UsuarioId == u.Id
+                             select r.Nombre).ToList()
+                })
+                .ToListAsync();
+
+            return View(usuarios);
+        }
     }
 }
