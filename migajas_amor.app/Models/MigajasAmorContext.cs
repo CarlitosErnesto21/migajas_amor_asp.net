@@ -15,6 +15,8 @@ public partial class MigajasAmorContext : DbContext
     {
     }
 
+    public virtual DbSet<Pedido> Pedidos { get; set; }
+
     public virtual DbSet<Producto> Productos { get; set; }
 
     public virtual DbSet<Proveedore> Proveedores { get; set; }
@@ -31,6 +33,39 @@ public partial class MigajasAmorContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Pedido>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("pedidos");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Cantidad).HasColumnName("cantidad");
+            entity.Property(e => e.Cliente)
+                .HasMaxLength(100)
+                .HasColumnName("cliente");
+            entity.Property(e => e.Comentarios)
+                .HasMaxLength(255)
+                .HasColumnName("comentarios");
+            entity.Property(e => e.DireccionEntrega)
+                .HasMaxLength(255)
+                .HasColumnName("direccion_entrega");
+            entity.Property(e => e.Estado)
+                .HasDefaultValueSql("'pendiente'")
+                .HasColumnType("enum('pendiente','en preparación','entregado','cancelado')")
+                .HasColumnName("estado");
+            entity.Property(e => e.FechaPedido)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("timestamp")
+                .HasColumnName("fecha_pedido");
+            entity.Property(e => e.Producto)
+                .HasMaxLength(100)
+                .HasColumnName("producto");
+            entity.Property(e => e.Telefono)
+                .HasMaxLength(20)
+                .HasColumnName("telefono");
+        });
+
         modelBuilder.Entity<Producto>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");

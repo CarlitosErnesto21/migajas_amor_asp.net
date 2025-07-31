@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\migajas_amor.app\\migajas_amor.app\\migajas_amor.app.csproj": {}
+    "C:\\Users\\Karla Méndez\\source\\repos\\migajas_amor_asp.net\\migajas_amor.app\\migajas_amor.app.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\migajas_amor.app\\migajas_amor.app\\migajas_amor.app.csproj": {
+    "C:\\Users\\Karla Méndez\\source\\repos\\migajas_amor_asp.net\\migajas_amor.app\\migajas_amor.app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\migajas_amor.app\\migajas_amor.app\\migajas_amor.app.csproj",
+        "projectUniqueName": "C:\\Users\\Karla Méndez\\source\\repos\\migajas_amor_asp.net\\migajas_amor.app\\migajas_amor.app.csproj",
         "projectName": "migajas_amor.app",
-        "projectPath": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\migajas_amor.app\\migajas_amor.app\\migajas_amor.app.csproj",
-        "packagesPath": "C:\\Users\\ernes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\migajas_amor.app\\migajas_amor.app\\obj\\",
+        "projectPath": "C:\\Users\\Karla Méndez\\source\\repos\\migajas_amor_asp.net\\migajas_amor.app\\migajas_amor.app.csproj",
+        "packagesPath": "C:\\Users\\Karla Méndez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Karla Méndez\\source\\repos\\migajas_amor_asp.net\\migajas_amor.app\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ernes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Karla Méndez\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
