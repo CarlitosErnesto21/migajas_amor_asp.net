@@ -22,7 +22,7 @@ namespace migajas_amor.app.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Index(InfoLogin infoLogin)
+        public async Task<IActionResult> Index(Usuario infoLogin)
         {
             if (infoLogin != null)
             {
@@ -31,14 +31,13 @@ namespace migajas_amor.app.Controllers
                 byte[] hashValue = mySHA256.ComputeHash(datos);
 
                 string hash = BitConverter.ToString(hashValue).Replace("-", "").ToLower();
-                string sql = String.Format("select Id, Login, Password from Usuarios a where Login='{0}' and Password='{1}'", infoLogin.Login, hash);
-                Usuario? usuario = _context.Usuarios.FromSqlRaw<Usuario>(sql).FirstOrDefault<Usuario>();
+                Usuario? usuario = _context.Usuarios.FromSqlRaw("SELECT Id, Login, Password FROM Usuarios WHERE Login = {0} AND Password = {1}", infoLogin.Login, hash).FirstOrDefault();
 
                 if (usuario != null)
                 {
                     var claims = new List<Claim> {
-                        new Claim(ClaimTypes.Name,"calitos"), // usuario.Login
-                        new Claim("Otro","otro dato")
+                        new Claim(ClaimTypes.Name, usuario.Login) // usuario.Login
+                        
                     };
 
                     List<Role> lista = (from rls in _context.Roles
