@@ -15,6 +15,8 @@ public partial class MigajasAmorContext : DbContext
     {
     }
 
+    public virtual DbSet<Cliente> Clientes { get; set; }
+
     public virtual DbSet<Pedido> Pedidos { get; set; }
 
     public virtual DbSet<Producto> Productos { get; set; }
@@ -33,6 +35,34 @@ public partial class MigajasAmorContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Cliente>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("clientes");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Apellido)
+                .HasMaxLength(50)
+                .HasColumnName("apellido");
+            entity.Property(e => e.Direccion)
+                .HasMaxLength(255)
+                .HasColumnName("direccion");
+            entity.Property(e => e.Email)
+                .HasMaxLength(150)
+                .HasColumnName("email");
+            entity.Property(e => e.FechaRegistro)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("timestamp")
+                .HasColumnName("fecha_registro");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(50)
+                .HasColumnName("nombre");
+            entity.Property(e => e.Telefono)
+                .HasMaxLength(8)
+                .HasColumnName("telefono");
+        });
+
         modelBuilder.Entity<Pedido>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");

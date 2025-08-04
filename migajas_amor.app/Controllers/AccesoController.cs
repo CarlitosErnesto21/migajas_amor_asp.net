@@ -21,6 +21,8 @@ namespace migajas_amor.app.Controllers
         {
             return View();
         }
+
+        
         [HttpPost]
         public async Task<IActionResult> Index(Usuario infoLogin)
         {
