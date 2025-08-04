@@ -1,7 +1,15 @@
 ﻿@model IEnumerable<migajas_amor.app.Models.Pedido>
-
+@using migajas_amor.app.Utilidades;
 @{
     ViewData["Title"] = "Pedidos ";
+
+    Paginacion paginacion = new Paginacion();
+    int paginaActual = 0;
+    if (ViewBag.Paginacion != null)
+    {
+        paginacion = ViewBag.Paginacion;
+        paginaActual = paginacion.PaginaActual;
+    }
 }
 
 <h2>Pedidos Recibidos</h2>
@@ -35,3 +43,4 @@
         }
     </tbody>
 </table>
+<partial name="_paginacion" model="@paginacion" /> 

@@ -53,6 +53,13 @@ app.UseAuthorization();
 app.MapStaticAssets();
 
 app.MapControllerRoute(
+    name: "listPedidosDirect",
+    pattern: "ListPedidos",
+    defaults: new { controller = "Acceso", action = "ListPedidos" });
+
+
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Acceso}/{action=Index}/{id?}") //cambio temporal para que no se rompa la app
     .WithStaticAssets();
