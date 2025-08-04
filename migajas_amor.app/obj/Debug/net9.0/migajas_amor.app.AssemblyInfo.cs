@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("migajas_amor.app")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d276fb3fe26321dc1b258886372707b452b8273a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9ef199f5419def1ab7e42acfc1b4f8e925783c3")]
 [assembly: System.Reflection.AssemblyProductAttribute("migajas_amor.app")]
 [assembly: System.Reflection.AssemblyTitleAttribute("migajas_amor.app")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
