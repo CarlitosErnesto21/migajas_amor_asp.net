@@ -1,7 +1,15 @@
 ﻿@model IEnumerable<migajas_amor.app.Models.Producto>
-
+@using migajas_amor.app.Utilidades;
 @{
     ViewData["Title"] = "Index";
+
+    Paginacion paginacion = new Paginacion();
+    int paginaActual = 0;
+    if (ViewBag.Paginacion != null)
+    {
+        paginacion = ViewBag.Paginacion;
+        paginaActual = paginacion.PaginaActual;
+    }
 }
 
 <h1>Index</h1>
@@ -66,3 +74,4 @@
 }
     </tbody>
 </table>
+<partial name="_paginacion" model="@paginacion" /> 

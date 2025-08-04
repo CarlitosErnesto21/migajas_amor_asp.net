@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using migajas_amor.app.Models;
+using migajas_amor.app.Utilidades;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
@@ -103,8 +104,15 @@ namespace migajas_amor.app.Controllers
             return View(usuarios);
         }
 
-        public async Task<IActionResult> ListPedidos(string? search)
+        public async Task<IActionResult> ListPedidos(int pg = 1, string? search = null)
         {
+            var lista = await _context.Pedidos.ToListAsync();
+
+            var paginacion = new Paginacion(lista.Count, pg, 5, "ListPedidos");
+            var data = lista.Skip(paginacion.Salto).Take(paginacion.RegistrosPagina).ToList();
+            this.ViewBag.Paginacion = paginacion;
+
+
             var pedidos = await _context.Pedidos.ToListAsync();
 
             if (!string.IsNullOrWhiteSpace(search))
@@ -117,6 +125,7 @@ namespace migajas_amor.app.Controllers
             }
 
             return View(pedidos);
+            
         }
 
         public async Task<IActionResult> ListaClientes(string? search)
