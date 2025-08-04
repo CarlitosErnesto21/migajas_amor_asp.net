@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace migajas_amor.app.Models;
 
@@ -12,7 +11,6 @@ public partial class Producto
 
     public string Descripcion { get; set; } = null!;
 
-    [Range(0.01, 9999.99)]
     public decimal Precio { get; set; }
 
     public int Stock { get; set; }
