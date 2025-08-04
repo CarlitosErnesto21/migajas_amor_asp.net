@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Pedidos ";
 
+
     Paginacion paginacion = new Paginacion();
     int paginaActual = 0;
     if (ViewBag.Paginacion != null)
@@ -10,9 +11,14 @@
         paginacion = ViewBag.Paginacion;
         paginaActual = paginacion.PaginaActual;
     }
+
+    var search = Context.Request.Query["search"].ToString();
+
 }
 
 <h2>Pedidos Recibidos</h2>
+
+@await Html.PartialAsync("_CuadroBusqueda", search)
 
 <table class="table table-bordered">
     <thead>

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<migajas_amor.app.Models.Cliente>
+@{
+    ViewData["Title"] = "Clientes ";
+    var search = Context.Request.Query["search"].ToString();
+}
+
+<h2>Clientes</h2>
+
+@await Html.PartialAsync("_CuadroBusqueda", search)
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Telefono</th>
+            <th>Email</th>
+            <th>Direcion</th>
+            <th>Fecha De Registro</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in Model)
+        {
+            <tr>
+                <td>@cliente.Nombre</td>
+                <td>@cliente.Apellido</td>
+                <td>@cliente.Telefono</td>
+                <td>@cliente.Email</td>
+                <td>@cliente.Direccion</td>
+                <td>@cliente.FechaRegistro</td>
+            </tr>
+        }
+    </tbody>
+</table>
