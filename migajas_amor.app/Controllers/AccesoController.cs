@@ -97,5 +97,10 @@ namespace migajas_amor.app.Controllers
         {
             return View(await _context.Pedidos.ToListAsync());
         }
+
+        public async Task<IActionResult> ListaClientes()
+        {
+            return View(await _context.Clientes.ToListAsync());
+        }
     }
 }
