@@ -7435,23 +7435,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andy7\\.nuget\\packages\\": {},
+    "C:\\Users\\ernes\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andy7\\source\\repos\\migajas_amor_asp.net\\migajas_amor.app\\migajas_amor.app.csproj",
+      "projectUniqueName": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaSíntesis\\migajas_amor.app\\migajas_amor.app\\migajas_amor.app.csproj",
       "projectName": "migajas_amor.app",
-      "projectPath": "C:\\Users\\andy7\\source\\repos\\migajas_amor_asp.net\\migajas_amor.app\\migajas_amor.app.csproj",
-      "packagesPath": "C:\\Users\\andy7\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andy7\\source\\repos\\migajas_amor_asp.net\\migajas_amor.app\\obj\\",
+      "projectPath": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaSíntesis\\migajas_amor.app\\migajas_amor.app\\migajas_amor.app.csproj",
+      "packagesPath": "C:\\Users\\ernes\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaSíntesis\\migajas_amor.app\\migajas_amor.app\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\andy7\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ernes\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

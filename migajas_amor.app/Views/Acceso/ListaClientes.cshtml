@@ -1,10 +1,12 @@
 ﻿@model IEnumerable<migajas_amor.app.Models.Cliente>
-
 @{
     ViewData["Title"] = "Clientes ";
+    var search = Context.Request.Query["search"].ToString();
 }
 
 <h2>Clientes</h2>
+
+@await Html.PartialAsync("_CuadroBusqueda", search)
 
 <table class="table table-bordered">
     <thead>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using migajas_amor.app.Models;
@@ -76,7 +77,8 @@ namespace migajas_amor.app.Controllers
             return RedirectToAction("Index", "Acceso");
         }
 
-        public async Task<IActionResult> ListUsuarioRol()
+        [Authorize(Roles = "Administrador")]
+        public async Task<IActionResult> ListUsuarioRol(string? search)
         {
             var usuarios = await _context.Usuarios
                 .Select(u => new UsuarioRol
@@ -90,17 +92,47 @@ namespace migajas_amor.app.Controllers
                 })
                 .ToListAsync();
 
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                usuarios = usuarios
+                    .Where(u => u.Login.Contains(search, StringComparison.OrdinalIgnoreCase)
+                             || u.Roles.Any(r => r.Contains(search, StringComparison.OrdinalIgnoreCase)))
+                    .ToList();
+            }
+
             return View(usuarios);
         }
 
-        public async Task<IActionResult> ListPedidos()
+        public async Task<IActionResult> ListPedidos(string? search)
         {
-            return View(await _context.Pedidos.ToListAsync());
+            var pedidos = await _context.Pedidos.ToListAsync();
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                pedidos = pedidos
+                    .Where(p => (p.Cliente?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
+                             || (p.Producto?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
+                             || (p.Estado?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false))
+                    .ToList();
+            }
+
+            return View(pedidos);
         }
 
-        public async Task<IActionResult> ListaClientes()
+        public async Task<IActionResult> ListaClientes(string? search)
         {
-            return View(await _context.Clientes.ToListAsync());
+            var clientes = await _context.Clientes.ToListAsync();
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                clientes = clientes
+                    .Where(c => (c.Nombre?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
+                             || (c.Apellido?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
+                             || (c.Email?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false))
+                    .ToList();
+            }
+
+            return View(clientes);
         }
     }
 }
