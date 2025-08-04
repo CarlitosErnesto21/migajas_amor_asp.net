@@ -1,7 +1,19 @@
 ﻿@model List<migajas_amor.app.Models.UsuarioRol>
+@using migajas_amor.app.Utilidades;
 @{
-    ViewData["Title"] = "Usuario y Roles ";
+    ViewData["Title"] = "Usuarios y Roles ";
+
+
+    Paginacion paginacion = new Paginacion();
+    int paginaActual = 0;
+    if (ViewBag.Paginacion != null)
+    {
+        paginacion = ViewBag.Paginacion;
+        paginaActual = paginacion.PaginaActual;
+    }
+
     var search = Context.Request.Query["search"].ToString();
+
 }
 
 <h2>Usuarios y Roles</h2>
@@ -25,3 +37,4 @@
         }
     </tbody>
 </table>
+<partial name="_paginacion" model="@paginacion" /> 

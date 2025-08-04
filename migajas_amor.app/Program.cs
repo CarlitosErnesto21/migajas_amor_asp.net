@@ -30,9 +30,6 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         option.AccessDeniedPath = "/Home/Privacy";
     });
 
-
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -57,11 +54,19 @@ app.MapControllerRoute(
     pattern: "ListPedidos",
     defaults: new { controller = "Acceso", action = "ListPedidos" });
 
+app.MapControllerRoute(
+    name: "listUsuarioRolDirect",
+    pattern: "ListUsuarioRol",
+    defaults: new { controller = "Acceso", action = "ListUsuarioRol" });
 
+app.MapControllerRoute(
+    name: "listClientesDirect",
+    pattern: "ListaClientes",
+    defaults: new { controller = "Acceso", action = "ListaClientes" });
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Acceso}/{action=Index}/{id?}") //cambio temporal para que no se rompa la app
+    pattern: "{controller=Home}/{action=Index}/{id?}") //cambio temporal para que no se rompa la app
     .WithStaticAssets();
 
 app.Run();

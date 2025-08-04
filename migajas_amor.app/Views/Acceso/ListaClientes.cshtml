@@ -1,7 +1,19 @@
 ﻿@model IEnumerable<migajas_amor.app.Models.Cliente>
+@using migajas_amor.app.Utilidades;
 @{
     ViewData["Title"] = "Clientes ";
+
+
+    Paginacion paginacion = new Paginacion();
+    int paginaActual = 0;
+    if (ViewBag.Paginacion != null)
+    {
+        paginacion = ViewBag.Paginacion;
+        paginaActual = paginacion.PaginaActual;
+    }
+
     var search = Context.Request.Query["search"].ToString();
+
 }
 
 <h2>Clientes</h2>
@@ -33,3 +45,4 @@
         }
     </tbody>
 </table>
+<partial name="_paginacion" model="@paginacion" /> 

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using migajas_amor.app.Models;
 using migajas_amor.app.Utilidades;
+using MySqlX.XDevAPI;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
@@ -79,7 +80,7 @@ namespace migajas_amor.app.Controllers
         }
 
         [Authorize(Roles = "Administrador")]
-        public async Task<IActionResult> ListUsuarioRol(string? search)
+        public async Task<IActionResult> ListUsuarioRol(int pg = 1, string? search = null)
         {
             var usuarios = await _context.Usuarios
                 .Select(u => new UsuarioRol
@@ -101,34 +102,43 @@ namespace migajas_amor.app.Controllers
                     .ToList();
             }
 
-            return View(usuarios);
+            var totalRegistros = usuarios.Count();
+            var paginacion = new Paginacion(totalRegistros, pg, 1, "ListUsuarioRol");
+            var data = usuarios
+                .Skip(paginacion.Salto)
+                .Take(paginacion.RegistrosPagina)
+                .ToList();
+            this.ViewBag.Paginacion = paginacion;
+
+            return View(data);
         }
 
         public async Task<IActionResult> ListPedidos(int pg = 1, string? search = null)
-        {
-            var lista = await _context.Pedidos.ToListAsync();
-
-            var paginacion = new Paginacion(lista.Count, pg, 5, "ListPedidos");
-            var data = lista.Skip(paginacion.Salto).Take(paginacion.RegistrosPagina).ToList();
-            this.ViewBag.Paginacion = paginacion;
-
-
-            var pedidos = await _context.Pedidos.ToListAsync();
+        { 
+            var pedidosQuery = await _context.Pedidos.ToListAsync();
 
             if (!string.IsNullOrWhiteSpace(search))
             {
-                pedidos = pedidos
-                    .Where(p => (p.Cliente?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
-                             || (p.Producto?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
-                             || (p.Estado?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false))
-                    .ToList();
+                pedidosQuery = pedidosQuery.Where(p =>
+                    (!string.IsNullOrEmpty(p.Cliente) && p.Cliente.Contains(search, StringComparison.OrdinalIgnoreCase)) ||
+                    (!string.IsNullOrEmpty(p.Producto) && p.Producto.Contains(search, StringComparison.OrdinalIgnoreCase)) ||
+                    (!string.IsNullOrEmpty(p.Estado) && p.Estado.Contains(search, StringComparison.OrdinalIgnoreCase))
+                ).ToList();
             }
 
-            return View(pedidos);
+            var totalRegistros = pedidosQuery.Count();
+            var paginacion = new Paginacion(totalRegistros, pg, 5, "ListPedidos");
+            var data = pedidosQuery
+                .Skip(paginacion.Salto)
+                .Take(paginacion.RegistrosPagina)
+                .ToList();
+            this.ViewBag.Paginacion = paginacion;
+
+            return View(data);
             
         }
 
-        public async Task<IActionResult> ListaClientes(string? search)
+        public async Task<IActionResult> ListaClientes(int pg = 1, string? search = null)
         {
             var clientes = await _context.Clientes.ToListAsync();
 
@@ -141,7 +151,15 @@ namespace migajas_amor.app.Controllers
                     .ToList();
             }
 
-            return View(clientes);
+            var totalRegistros = clientes.Count();
+            var paginacion = new Paginacion(totalRegistros, pg, 5, "ListaClientes");
+            var data = clientes
+                .Skip(paginacion.Salto)
+                .Take(paginacion.RegistrosPagina)
+                .ToList();
+            this.ViewBag.Paginacion = paginacion;
+
+            return View(data);
         }
     }
 }
