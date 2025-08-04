@@ -7441,11 +7441,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\migajas_amor.app\\migajas_amor.app\\migajas_amor.app.csproj",
+      "projectUniqueName": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaSíntesis\\migajas_amor.app\\migajas_amor.app\\migajas_amor.app.csproj",
       "projectName": "migajas_amor.app",
-      "projectPath": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\migajas_amor.app\\migajas_amor.app\\migajas_amor.app.csproj",
+      "projectPath": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaSíntesis\\migajas_amor.app\\migajas_amor.app\\migajas_amor.app.csproj",
       "packagesPath": "C:\\Users\\ernes\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\migajas_amor.app\\migajas_amor.app\\obj\\",
+      "outputPath": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaSíntesis\\migajas_amor.app\\migajas_amor.app\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

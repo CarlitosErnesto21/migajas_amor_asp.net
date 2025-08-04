@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rRfwb1+zv+4=",
+  "dgSpecHash": "UNT8QFdbmOc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\migajas_amor.app\\migajas_amor.app\\migajas_amor.app.csproj",
+  "projectFilePath": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaSíntesis\\migajas_amor.app\\migajas_amor.app\\migajas_amor.app.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ernes\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
     "C:\\Users\\ernes\\.nuget\\packages\\google.protobuf\\3.30.0\\google.protobuf.3.30.0.nupkg.sha512",
