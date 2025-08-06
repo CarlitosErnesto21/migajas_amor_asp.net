@@ -7,11 +7,9 @@ public partial class Pedido
 {
     public int Id { get; set; }
 
-    public string Cliente { get; set; } = null!;
+    public int? ClienteId { get; set; }
 
-    public string Producto { get; set; } = null!;
-
-    public int Cantidad { get; set; }
+    public int? Cantidad { get; set; }
 
     public DateTime? FechaPedido { get; set; }
 

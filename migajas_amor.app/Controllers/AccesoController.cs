@@ -4,11 +4,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using migajas_amor.app.Models;
+using migajas_amor.app.Pdf;
 using migajas_amor.app.Utilidades;
 using MySqlX.XDevAPI;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using QuestPDF.Fluent;
 
 namespace migajas_amor.app.Controllers
 {
@@ -103,7 +105,7 @@ namespace migajas_amor.app.Controllers
             }
 
             var totalRegistros = usuarios.Count();
-            var paginacion = new Paginacion(totalRegistros, pg, 1, "ListUsuarioRol");
+            var paginacion = new Paginacion(totalRegistros, pg, 2, "ListUsuarioRol");
             var data = usuarios
                 .Skip(paginacion.Salto)
                 .Take(paginacion.RegistrosPagina)
@@ -114,15 +116,14 @@ namespace migajas_amor.app.Controllers
         }
 
         public async Task<IActionResult> ListPedidos(int pg = 1, string? search = null)
-        { 
+        {
             var pedidosQuery = await _context.Pedidos.ToListAsync();
 
             if (!string.IsNullOrWhiteSpace(search))
             {
                 pedidosQuery = pedidosQuery.Where(p =>
-                    (!string.IsNullOrEmpty(p.Cliente) && p.Cliente.Contains(search, StringComparison.OrdinalIgnoreCase)) ||
-                    (!string.IsNullOrEmpty(p.Producto) && p.Producto.Contains(search, StringComparison.OrdinalIgnoreCase)) ||
-                    (!string.IsNullOrEmpty(p.Estado) && p.Estado.Contains(search, StringComparison.OrdinalIgnoreCase))
+                    (!string.IsNullOrEmpty(p.Estado) && p.Estado.Contains(search, StringComparison.OrdinalIgnoreCase)) ||
+                    (!string.IsNullOrEmpty(p.DireccionEntrega) && p.DireccionEntrega.Contains(search, StringComparison.OrdinalIgnoreCase))
                 ).ToList();
             }
 
@@ -135,7 +136,6 @@ namespace migajas_amor.app.Controllers
             this.ViewBag.Paginacion = paginacion;
 
             return View(data);
-            
         }
 
         public async Task<IActionResult> ListaClientes(int pg = 1, string? search = null)
@@ -160,6 +160,19 @@ namespace migajas_amor.app.Controllers
             this.ViewBag.Paginacion = paginacion;
 
             return View(data);
+        }
+
+        //Acción para generar el PDF de los detalles de pedidos
+        [HttpGet(Name = "DetallePedidosPdf")]
+        public IResult DetallePedidosPdf(int n)
+        {
+            string sql = "SELECT p.fecha_pedido, c.nombre, c.email, p.estado, pr.nombre AS producto, pr.precio AS precio_unitario, dp.cantidad, dp.total FROM pedidos p JOIN clientes c ON p.cliente_id = c.id JOIN detalle_pedidos dp ON p.id = dp.pedido_id JOIN productos pr ON dp.producto_id = pr.id ORDER BY p.fecha_pedido DESC;";
+            List<DetallePedidoPdf> data = _context.PedidosPdf
+                .FromSqlRaw(sql)
+                .ToList();
+            var document = new DetallePedidoPdfDoc(data);
+            var pdfStream = document.GeneratePdf();
+            return Results.File(pdfStream, "application/pdf", "detalle_pedidos.pdf");
         }
     }
 }

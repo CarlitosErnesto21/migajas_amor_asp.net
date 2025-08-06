@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UNT8QFdbmOc=",
+  "dgSpecHash": "PMcDfDP7T3Y=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaSíntesis\\migajas_amor.app\\migajas_amor.app\\migajas_amor.app.csproj",
+  "projectFilePath": "C:\\Users\\ernes\\Documents\\MÓDULOS\\Construcción de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaSíntesis\\migajas_amor_asp.net\\migajas_amor.app\\migajas_amor.app.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ernes\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
     "C:\\Users\\ernes\\.nuget\\packages\\google.protobuf\\3.30.0\\google.protobuf.3.30.0.nupkg.sha512",
@@ -117,6 +117,7 @@
     "C:\\Users\\ernes\\.nuget\\packages\\nuget.projectmodel\\6.11.0\\nuget.projectmodel.6.11.0.nupkg.sha512",
     "C:\\Users\\ernes\\.nuget\\packages\\nuget.protocol\\6.11.0\\nuget.protocol.6.11.0.nupkg.sha512",
     "C:\\Users\\ernes\\.nuget\\packages\\nuget.versioning\\6.11.0\\nuget.versioning.6.11.0.nupkg.sha512",
+    "C:\\Users\\ernes\\.nuget\\packages\\questpdf\\2025.7.0\\questpdf.2025.7.0.nupkg.sha512",
     "C:\\Users\\ernes\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\ernes\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",
     "C:\\Users\\ernes\\.nuget\\packages\\system.collections.immutable\\8.0.0\\system.collections.immutable.8.0.0.nupkg.sha512",

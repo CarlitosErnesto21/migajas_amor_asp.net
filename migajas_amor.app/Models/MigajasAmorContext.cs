@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using migajas_amor.app.Pdf;
 
 namespace migajas_amor.app.Models;
 
@@ -17,6 +18,8 @@ public partial class MigajasAmorContext : DbContext
 
     public virtual DbSet<Cliente> Clientes { get; set; }
 
+    public virtual DbSet<DetallePedido> DetallePedidos { get; set; }
+
     public virtual DbSet<Pedido> Pedidos { get; set; }
 
     public virtual DbSet<Producto> Productos { get; set; }
@@ -29,12 +32,51 @@ public partial class MigajasAmorContext : DbContext
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
+    public virtual DbSet<DetallePedidoPdf> PedidosPdf { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseMySQL("Server=localhost;Database=migajas_amor;User=root;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<DetallePedidoPdf>(entity =>
+        {
+            entity.HasNoKey();
+
+            entity.Property(e => e.FechaPedido)
+                .HasColumnType("timestamp")
+                .HasColumnName("fecha_pedido");
+
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(50)
+                .HasColumnName("nombre");
+
+            entity.Property(e => e.Email)
+                .HasMaxLength(150)
+                .HasColumnName("email");
+
+            entity.Property(e => e.Estado)
+                .HasMaxLength(20)
+                .HasColumnName("estado");
+
+            entity.Property(e => e.Producto)
+                .HasMaxLength(100)
+                .HasColumnName("producto");
+
+            entity.Property(e => e.PrecioUnitario)
+                .HasColumnType("decimal(10,2)")
+                .HasColumnName("precio_unitario");
+
+            entity.Property(e => e.Cantidad)
+                .HasColumnType("int")
+                .HasColumnName("cantidad");
+
+            entity.Property(e => e.Total)
+                .HasColumnType("decimal(10,2)")
+                .HasColumnName("total");
+        });
+
         modelBuilder.Entity<Cliente>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
@@ -63,17 +105,36 @@ public partial class MigajasAmorContext : DbContext
                 .HasColumnName("telefono");
         });
 
+        modelBuilder.Entity<DetallePedido>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("detalle_pedidos");
+
+            entity.HasIndex(e => e.PedidoId, "pedido_id");
+
+            entity.HasIndex(e => e.ProductoId, "producto_id");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Cantidad).HasColumnName("cantidad");
+            entity.Property(e => e.PedidoId).HasColumnName("pedido_id");
+            entity.Property(e => e.ProductoId).HasColumnName("producto_id");
+            entity.Property(e => e.Total)
+                .HasPrecision(10)
+                .HasColumnName("total");
+        });
+
         modelBuilder.Entity<Pedido>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("pedidos");
 
+            entity.HasIndex(e => e.ClienteId, "cliente_id");
+
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Cantidad).HasColumnName("cantidad");
-            entity.Property(e => e.Cliente)
-                .HasMaxLength(100)
-                .HasColumnName("cliente");
+            entity.Property(e => e.ClienteId).HasColumnName("cliente_id");
             entity.Property(e => e.Comentarios)
                 .HasMaxLength(255)
                 .HasColumnName("comentarios");
@@ -88,9 +149,6 @@ public partial class MigajasAmorContext : DbContext
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("timestamp")
                 .HasColumnName("fecha_pedido");
-            entity.Property(e => e.Producto)
-                .HasMaxLength(100)
-                .HasColumnName("producto");
             entity.Property(e => e.Telefono)
                 .HasMaxLength(20)
                 .HasColumnName("telefono");
