@@ -162,6 +162,7 @@ namespace migajas_amor.app.Controllers
             return View(data);
         }
 
+        [Authorize(Roles = "Administrador")]
         //Acción para generar el PDF de los detalles de pedidos
         [HttpGet(Name = "DetallePedidosPdf")]
         public IResult DetallePedidosPdf(int n)
