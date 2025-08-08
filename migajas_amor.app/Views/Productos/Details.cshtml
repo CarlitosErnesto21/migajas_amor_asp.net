@@ -4,48 +4,141 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<style>
+    .producto-details-box {
+        max-width: 520px;
+        margin: 2.2rem auto 0 auto;
+        background: #fff6f3;
+        border-radius: 1.2rem;
+        box-shadow: 0 2px 12px rgba(186,104,200,0.11);
+        padding: 2.1rem 2.2rem 1.5rem 2.2rem;
+    }
 
-<div>
-    <h4>Producto</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
+    .producto-details-title {
+        font-family: 'Pacifico', cursive, 'Brush Script MT', sans-serif;
+        color: #b5838d;
+        font-size: 2.2rem;
+        letter-spacing: 1.2px;
+        margin-bottom: 0.4rem;
+        margin-top: 0.1rem;
+        text-align: left;
+    }
+
+    .producto-details-subtitle {
+        font-size: 1.25rem;
+        color: #a66eb8;
+        font-family: 'Roboto', Arial, sans-serif;
+        margin-bottom: 1.1rem;
+        font-weight: 500;
+    }
+
+    .producto-details-list dt {
+        color: #b5838d;
+        font-weight: bold;
+        font-size: 1.08rem;
+        font-family: 'Roboto', Arial, sans-serif;
+        padding-top: 0.5rem;
+    }
+
+    .producto-details-list dd {
+        color: #864879;
+        font-size: 1.08rem;
+        font-family: 'Roboto', Arial, sans-serif;
+        padding-bottom: 0.21rem;
+        padding-left: 0.1rem;
+        margin-bottom: 0.32rem;
+        border-bottom: 1px solid #f7b2ad;
+    }
+
+        .producto-details-list dd:last-of-type {
+            border-bottom: none;
+        }
+
+    .producto-details-actions {
+        margin-top: 1.3rem;
+        display: flex;
+        gap: 0.7rem;
+        align-items: center;
+    }
+
+    .producto-details-edit {
+        background: linear-gradient(90deg, #f7b267 0%, #f4845f 100%);
+        color: #fff;
+        border: none;
+        border-radius: 0.9rem;
+        font-weight: 600;
+        font-size: 1.07rem;
+        padding: 0.5rem 1.3rem;
+        text-decoration: none;
+        transition: background 0.16s;
+        box-shadow: 0 2px 8px rgba(244,132,95,0.09);
+    }
+
+        .producto-details-edit:hover, .producto-details-edit:focus {
+            background: linear-gradient(90deg, #f4845f 0%, #f7b267 100%);
+            color: #fff;
+            text-decoration: none;
+        }
+
+    .producto-details-back {
+        background: #fff6f3;
+        color: #b5838d;
+        border: 1.5px solid #f7b2ad;
+        border-radius: 0.9rem;
+        font-weight: 500;
+        font-size: 1.07rem;
+        padding: 0.5rem 1.3rem;
+        text-decoration: none;
+        transition: background 0.16s, color 0.16s;
+    }
+
+        .producto-details-back:hover, .producto-details-back:focus {
+            background: #f7b2ad;
+            color: #fff;
+            text-decoration: none;
+        }
+</style>
+
+<div class="producto-details-box">
+    <div class="producto-details-title">Detalles del Producto</div>
+    <div class="producto-details-subtitle">Información completa</div>
+    <dl class="row producto-details-list">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Nombre)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Nombre)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Descripcion)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Descripcion)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Precio)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Precio)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Stock)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Stock)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.FechaCreacion)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.FechaCreacion)
         </dd>
     </dl>
-</div>
-<div>
-    @if (User.IsInRole("Administrador"))
-    {
-        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
-    }|
-    <a asp-action="Index">Back to List</a>
+    <div class="producto-details-actions">
+        @if (User.IsInRole("Administrador"))
+        {
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="producto-details-edit">Editar</a>
+        }
+        <a asp-action="Index" class="producto-details-back">Volver a la lista</a>
+    </div>
 </div>

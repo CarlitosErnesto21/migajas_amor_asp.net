@@ -1,8 +1,68 @@
 ﻿@model string
 
-<form method="get" class="mb-3">
-    <div class="input-group">
-        <input type="text" name="search" class="form-control" placeholder="Buscar..." value="@Model" />
-        <button type="submit" class="btn btn-primary">Buscar</button>
-    </div>
-</form>
+<style>
+    .busqueda-box {
+        max-width: 450px;
+        margin: 0 0 1.5rem 0;
+    }
+
+    .busqueda-input-group {
+        display: flex;
+        align-items: center;
+        background: #fff6f3;
+        border-radius: 1.2rem;
+        box-shadow: 0 2px 8px rgba(186,104,200,0.06);
+        padding: 0.15rem 0.4rem 0.15rem 0.7rem;
+        gap: 0.3rem;
+    }
+
+    .busqueda-input {
+        border: none;
+        background: transparent;
+        font-size: 1.08rem;
+        color: #864879;
+        padding: 0.55rem 0.7rem 0.55rem 0;
+        outline: none;
+        flex: 1 1 auto;
+    }
+
+        .busqueda-input:focus {
+            background: #fff;
+        }
+
+    .busqueda-btn {
+        background: linear-gradient(90deg, #f7b267 0%, #f4845f 100%);
+        color: #fff;
+        border: none;
+        border-radius: 0.9rem;
+        font-weight: 600;
+        font-size: 1.04rem;
+        padding: 0.53rem 1.25rem;
+        box-shadow: 0 2px 8px rgba(244,132,95,0.10);
+        transition: background 0.16s, color 0.16s;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+    }
+
+        .busqueda-btn:hover, .busqueda-btn:focus {
+            background: linear-gradient(90deg, #f4845f 0%, #f7b267 100%);
+            color: #fff;
+        }
+
+    .busqueda-icon {
+        font-size: 1.08rem;
+        opacity: 0.92;
+    }
+</style>
+
+<div class="busqueda-box">
+    <form method="get" class="mb-3" autocomplete="off">
+        <div class="busqueda-input-group">
+            <input type="text" name="search" class="busqueda-input" placeholder="Buscar..." value="@Model" />
+            <button type="submit" class="busqueda-btn">
+                <span class="busqueda-icon"><i class="bi bi-search"></i></span> Buscar
+            </button>
+        </div>
+    </form>
+</div>

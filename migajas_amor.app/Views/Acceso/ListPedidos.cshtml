@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Pedidos ";
 
-
     Paginacion paginacion = new Paginacion();
     int paginaActual = 0;
     if (ViewBag.Paginacion != null)
@@ -11,44 +10,142 @@
         paginacion = ViewBag.Paginacion;
         paginaActual = paginacion.PaginaActual;
     }
-
     var search = Context.Request.Query["search"].ToString();
-
 }
 
-<h2>Pedidos Recibidos</h2>
+<style>
+    .pedidos-box {
+        max-width: 1350px;
+        margin: 2.2rem auto 0 auto;
+        padding: 0 2.8rem 2.2rem 2.8rem;
+    }
 
-@await Html.PartialAsync("_CuadroBusqueda", search)
+    .pedidos-title {
+        font-family: 'Pacifico', cursive, 'Brush Script MT', sans-serif;
+        color: #b5838d;
+        font-size: 2.6rem;
+        letter-spacing: 1.2px;
+        margin-bottom: 0.05rem;
+        margin-top: 0.05rem;
+        text-align: left;
+    }
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Cantidad</th>
-            <th>Fecha De Pedido</th>
-            <th>Estado</th>
-            <th>Direcion De Entrega</th>
-            <th>Telefono</th>
-            <th>Comentarios</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var pedido in Model)
-        {
-            <tr>
-                <td>@pedido.Cantidad</td>
-                <td>@pedido.FechaPedido</td>
-                <td>@pedido.Estado</td>
-                <td>@pedido.DireccionEntrega</td>
-                <td>@pedido.Telefono</td>
-                <td>@pedido.Comentarios</td>
-            </tr>
+    .pedidos-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.05rem;
+        gap: 1rem;
+    }
+
+    .busqueda-align-right {
+        /* Se puede quitar display:flex, ya lo hace el contenedor padre */
+        margin-bottom: 0;
+    }
+
+    .table-pedidos {
+        background: #fff6f3;
+        border-radius: 1.1rem;
+        box-shadow: 0 2px 10px rgba(186,104,200,0.07);
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+        margin-top: 0.05rem;
+        width: 100%;
+        table-layout: auto;
+    }
+
+        .table-pedidos th {
+            background: linear-gradient(90deg, #ffe5ec 0%, #e0c3fc 100%);
+            color: #b5838d;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            font-size: 1.05rem;
+            border: none;
+            text-align: center;
+            padding: 0.75rem 0.6rem;
+            white-space: nowrap;
         }
-    </tbody>
-</table>
-@if (User.IsInRole("Administrador"))
-{
-    <a asp-controller="Acceso" asp-action="DetallePedidosPdf" asp-route-n="3" class="btn btn-success mb-4">
-        <i class="bi bi-file-earmark-pdf me-1"></i> Generar Reporte PDF
-    </a>
-}
-<partial name="_paginacion" model="@paginacion" /> 
+
+        .table-pedidos td {
+            color: #864879;
+            background: #fff;
+            border: none;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 1rem;
+            padding: 0.7rem 0.6rem;
+        }
+
+        .table-pedidos tr:not(:last-child) td {
+            border-bottom: 1px solid #f7b2ad;
+        }
+
+    .btn-reporte-pdf {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-weight: 600;
+        font-size: 1.06rem;
+        border: none;
+        border-radius: 1rem;
+        padding: 0.53rem 1.4rem;
+        background: linear-gradient(90deg, #68d391 0%, #38a169 100%);
+        color: #fff;
+        box-shadow: 0 2px 8px rgba(104,200,132,0.14);
+        margin-top: 0;
+        margin-bottom: 0;
+        text-decoration: none;
+        transition: background 0.18s, color 0.18s;
+    }
+
+        .btn-reporte-pdf:hover, .btn-reporte-pdf:focus {
+            background: linear-gradient(90deg, #38a169 0%, #68d391 100%);
+            color: #fff;
+            text-decoration: none;
+        }
+</style>
+
+<div class="pedidos-box">
+    <div class="pedidos-title">Pedidos Recibidos</div>
+
+    <div class="pedidos-toolbar">
+        <div>
+            @if (User.IsInRole("Administrador"))
+            {
+                <a asp-controller="Acceso" asp-action="DetallePedidosPdf" asp-route-n="3" class="btn-reporte-pdf">
+                    <i class="bi bi-file-earmark-pdf me-1"></i> Generar Reporte PDF
+                </a>
+            }
+        </div>
+        <div class="busqueda-align-right">
+            @await Html.PartialAsync("_CuadroBusqueda", search)
+        </div>
+    </div>
+
+    <table class="table table-pedidos">
+        <thead>
+            <tr>
+                <th>Cantidad</th>
+                <th>Fecha De Pedido</th>
+                <th>Estado</th>
+                <th>Dirección De Entrega</th>
+                <th>Teléfono</th>
+                <th>Comentarios</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pedido in Model)
+            {
+                <tr>
+                    <td>@pedido.Cantidad</td>
+                    <td>@pedido.FechaPedido</td>
+                    <td>@pedido.Estado</td>
+                    <td>@pedido.DireccionEntrega</td>
+                    <td>@pedido.Telefono</td>
+                    <td>@pedido.Comentarios</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <partial name="_paginacion" model="@paginacion" />
+</div>

@@ -1,6 +1,7 @@
 ﻿using QuestPDF.Infrastructure;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
+using QuestPDF.Elements;
 using System;
 using System.Collections.Generic;
 
@@ -21,20 +22,34 @@ namespace migajas_amor.app.Pdf
             {
                 page.Size(PageSizes.Letter);
                 page.Margin(1, Unit.Centimetre);
-                page.PageColor(Colors.White);
-                page.DefaultTextStyle(x => x.FontSize(8));
+                page.PageColor("#fff"); // Soft pastel background
+                page.DefaultTextStyle(x => x.FontSize(9).FontColor("#4d375d").FontFamily("Arial"));
 
+                // Header
                 page.Header()
-                    .Text("Detalle de pedidos")
-                    .SemiBold().FontSize(22).FontColor(Colors.Blue.Medium);
+                    .PaddingBottom(10)
+                    .Row(row =>
+                    {
+                        row.RelativeItem().Column(col =>
+                        {
+                            col.Item().Text("Migajas de Amor").FontSize(16).Bold().FontColor("#b5838d");
+                            col.Item().Text("Detalle de pedidos")
+                                .SemiBold()
+                                .FontSize(24)
+                                .FontColor("#4361ee");
+                        });
+                    });
 
+                // Content
                 page.Content()
                     .Column(column =>
                     {
-                        column.Spacing(10);
+                        column.Spacing(12);
 
-                        column.Item().Text("Total pedidos: " + Model.Count)
-                            .FontSize(10);
+                        column.Item().Text($"Total de pedidos: {Model.Count}")
+                            .FontSize(11)
+                            .FontColor("#f4845f")
+                            .Bold();
 
                         column.Item().Table(table =>
                         {
@@ -58,52 +73,69 @@ namespace migajas_amor.app.Pdf
                                 header.Cell().Element(CellStyleHeader).AlignCenter().Text("CORREO ELECTRÓNICO");
                                 header.Cell().Element(CellStyleHeader).AlignCenter().Text("ESTADO");
                                 header.Cell().Element(CellStyleHeader).AlignCenter().Text("PRODUCTO");
-                                header.Cell().Element(CellStyleHeader).AlignCenter().Text("PRECIO").FontSize(8);
-                                header.Cell().Element(CellStyleHeader).AlignCenter().Text("CANTIDAD").FontSize(8);
-                                header.Cell().Element(CellStyleHeader).AlignCenter().Text("TOTAL").FontSize(8);
+                                header.Cell().Element(CellStyleHeader).AlignCenter().Text("PRECIO").FontSize(9);
+                                header.Cell().Element(CellStyleHeader).AlignCenter().Text("CANTIDAD").FontSize(9);
+                                header.Cell().Element(CellStyleHeader).AlignCenter().Text("TOTAL").FontSize(9);
 
                                 static IContainer CellStyleHeader(IContainer container) =>
-                                    container.DefaultTextStyle(x => x.SemiBold().FontSize(8).FontColor(Colors.White))
-                                             .Background(Colors.Blue.Medium)
-                                             .PaddingVertical(7)
-                                             .PaddingHorizontal(3)
-                                             .BorderBottom(1)
-                                             .BorderColor(Colors.Grey.Medium);
+                                    container.DefaultTextStyle(x => x.SemiBold().FontSize(9).FontColor("#fff"))
+                                             .Background("#b5838d")
+                                             .PaddingVertical(8)
+                                             .PaddingHorizontal(4)
+                                             .BorderBottom(2)
+                                             .BorderColor("#f7b2ad")
+                                             .AlignMiddle();
                             });
 
                             // Rows
+                            bool alternate = false;
                             foreach (var item in Model)
                             {
-                                table.Cell().Element(CellStyleRow).AlignCenter().Text(item.FechaPedido.ToString("yyyy-MM-dd"));
-                                table.Cell().Element(CellStyleRow).Text(item.Nombre);
-                                table.Cell().Element(CellStyleRow).Text(item.Email);
-                                table.Cell().Element(CellStyleRow).Text(item.Estado);
-                                table.Cell().Element(CellStyleRow).Text(item.Producto);
-                                table.Cell().Element(CellStyleRow).Row(row =>
+                                var bgColor = alternate ? "#f7e2de" : "#fff6f3";
+                                alternate = !alternate;
+
+                                table.Cell().Element(c => CellStyleRow(c, bgColor)).AlignCenter().Text(item.FechaPedido.ToString("yyyy-MM-dd"));
+                                table.Cell().Element(c => CellStyleRow(c, bgColor)).Text(item.Nombre);
+                                table.Cell().Element(c => CellStyleRow(c, bgColor)).Text(item.Email);
+                                table.Cell().Element(c => CellStyleRow(c, bgColor)).Text(item.Estado);
+                                table.Cell().Element(c => CellStyleRow(c, bgColor)).Text(item.Producto);
+                                table.Cell().Element(c => CellStyleRow(c, bgColor)).Row(row =>
                                 {
-                                    row.RelativeItem().Text("$").AlignLeft();
+                                    row.RelativeItem().Text("$").FontColor("#b5838d").AlignLeft();
                                     row.RelativeItem().Text(item.PrecioUnitario.ToString("F2")).AlignRight();
                                 });
-                                table.Cell().Element(CellStyleRow).AlignCenter().Text(item.Cantidad.ToString());
-                                table.Cell().Element(CellStyleRow).Row(row =>
+                                table.Cell().Element(c => CellStyleRow(c, bgColor)).AlignCenter().Text(item.Cantidad.ToString());
+                                table.Cell().Element(c => CellStyleRow(c, bgColor)).Row(row =>
                                 {
-                                    row.RelativeItem().Text("$").AlignLeft();
+                                    row.RelativeItem().Text("$").FontColor("#b5838d").AlignLeft();
                                     row.RelativeItem().Text(item.Total.ToString("F2")).AlignRight();
                                 });
 
-                                static IContainer CellStyleRow(IContainer container) =>
-                                    container.PaddingVertical(2).PaddingHorizontal(3);
+                                static IContainer CellStyleRow(IContainer container, string background) =>
+                                    container
+                                        .Background(background)
+                                        .PaddingVertical(4)
+                                        .PaddingHorizontal(4)
+                                        .BorderBottom(1)
+                                        .BorderColor("#f7b2ad")
+                                        .AlignMiddle();
                             }
                         });
                     });
 
+                // Footer (corregido)
                 page.Footer()
                     .AlignCenter()
-                    .Text(x =>
-                    {
-                        x.Span("Página ").FontSize(9);
-                        x.CurrentPageNumber().FontSize(9);
-                    });
+                    .Element(e =>
+                        e.PaddingTop(10)
+                         .Text(x =>
+                         {
+                             x.Span("Página ").FontSize(10).FontColor("#b5838d");
+                             x.CurrentPageNumber().FontSize(10).FontColor("#b5838d");
+                             x.Span(" de ").FontSize(10).FontColor("#b5838d");
+                             x.TotalPages().FontSize(10).FontColor("#b5838d");
+                         })
+                    );
             });
         }
     }

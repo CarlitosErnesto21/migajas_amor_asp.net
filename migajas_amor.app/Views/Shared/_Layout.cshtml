@@ -9,10 +9,101 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/migajas_amor.app.styles.css" asp-append-version="true" />
+    <!-- Iconos Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <!-- Fuente Pacifico para el logo (igual que en el login) -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* Fondo pastel suave */
+        body {
+            background: linear-gradient(120deg, #fceabb 0%, #f8bfae 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+        }
+        /* Barra de navegación con colores pastel y logo */
+        .navbar {
+            background: linear-gradient(90deg, #ffe5ec 0%, #e0c3fc 100%) !important;
+            box-shadow: 0 4px 24px rgba(186, 104, 200, 0.07);
+            border-bottom: 2px solid #f7b2ad;
+        }
+
+        .navbar-brand {
+            font-family: 'Pacifico', cursive, 'Brush Script MT';
+            color: #b5838d !important;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        /* --------- ESTILOS PASTEL PARA LOS BOTONES DE LOS LINKS ASP --------- */
+        .pastel-nav-btn {
+            background: linear-gradient(90deg, #f7b267 0%, #f4845f 100%);
+            border: none;
+            border-radius: 1.1rem;
+            color: #fff !important;
+            font-weight: 600;
+            padding: 0.38rem 1.1rem;
+            font-size: 1rem;
+            box-shadow: 0 1px 6px rgba(244,132,95,0.10);
+            cursor: pointer;
+            text-decoration: none !important;
+            transition: background 0.18s, box-shadow 0.18s, color 0.18s, transform 0.12s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.32rem;
+            outline: none;
+            margin: 0 0.15rem 0.25rem 0.15rem;
+        }
+
+            .pastel-nav-btn i {
+                font-size: 1.08rem;
+            }
+
+            .pastel-nav-btn:hover,
+            .pastel-nav-btn:focus {
+                background: linear-gradient(90deg, #f4845f 0%, #f7b267 100%);
+                color: #fff !important;
+                box-shadow: 0 4px 16px rgba(244, 132, 95, 0.12);
+                transform: translateY(-2px) scale(1.045);
+                text-decoration: none !important;
+            }
+        /* --------- FIN DE ESTILOS PASTEL PARA LOS BOTONES ASP --------- */
+
+        .btn-danger, .btn-danger:focus, .btn-danger:active {
+            background: linear-gradient(90deg, #f7b267 0%, #f4845f 100%);
+            border: none;
+            border-radius: 2rem;
+            font-weight: 600;
+            color: #fff !important;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(244, 132, 95, 0.08);
+        }
+
+            .btn-danger:hover {
+                background: linear-gradient(90deg, #f4845f 0%, #f7b267 100%);
+                color: #fff !important;
+                box-shadow: 0 4px 16px rgba(244, 132, 95, 0.16);
+            }
+        /* Footer pastel y sutil */
+        .footer {
+            background: linear-gradient(90deg, #ffe5ec 0%, #e0c3fc 100%);
+            color: #a1887f !important;
+            border-top: 2px solid #f7b2ad;
+            font-size: 1rem;
+        }
+
+            .footer a {
+                color: #b5838d;
+                transition: color 0.2s;
+            }
+
+                .footer a:hover {
+                    color: #f4845f;
+                }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-2">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Migajas de Amor</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -20,54 +111,54 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 align-items-center" style="margin-bottom: 0;">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="pastel-nav-btn" asp-area="" asp-controller="Home" asp-action="Index"><i class="bi bi-house"></i> Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="pastel-nav-btn" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="bi bi-shield-exclamation"></i> Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Index">Productos</a>
+                            <a class="pastel-nav-btn" asp-area="" asp-controller="Productos" asp-action="Index"><i class="bi bi-shop"></i> Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Proveedores" asp-action="Index">Proveedores</a>
+                            <a class="pastel-nav-btn" asp-area="" asp-controller="Proveedores" asp-action="Index"><i class="bi bi-truck"></i> Proveedores</a>
                         </li>
                         @if (User.IsInRole("Administrador"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="ListUsuarioRol">Usuarios</a>
+                                <a class="pastel-nav-btn" asp-area="" asp-controller="Acceso" asp-action="ListUsuarioRol"><i class="bi bi-person-badge"></i> Usuarios</a>
                             </li>
                         }
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="ListPedidos">Pedidos</a>
+                            <a class="pastel-nav-btn" asp-area="" asp-controller="Acceso" asp-action="ListPedidos"><i class="bi bi-journal"></i> Pedidos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="ListaClientes">Clientes</a>
-                        </li>
-                    </ul>
-
-                    <!--Cerrar Sesión-->
-                    <ul class="navbar-nav ms-auto d-flex align-items-center">
-                        <li class="nav-item">
-                            <a class="btn btn-danger" asp-area="" asp-controller="Acceso" asp-action="Salir">Cerrar Sesión</a>
+                            <a class="pastel-nav-btn" asp-area="" asp-controller="Acceso" asp-action="ListaClientes"><i class="bi bi-people"></i> Clientes</a>
                         </li>
                     </ul>
                     <!--Cerrar Sesión-->
-
+                    <ul class="navbar-nav ms-auto d-flex align-items-center" style="margin-bottom: 0;">
+                        <li class="nav-item">
+                            <a class="btn btn-danger" asp-area="" asp-controller="Acceso" asp-action="Salir">
+                                <i class="bi bi-box-arrow-right me-1"></i> Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                    <!--Cerrar Sesión-->
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - migajas_amor.app - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2025 - migajas_amor.app -
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

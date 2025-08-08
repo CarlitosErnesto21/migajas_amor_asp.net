@@ -1,6 +1,58 @@
 ﻿@model migajas_amor.app.Utilidades.Paginacion;
 
-<div class="container">
+<style>
+    .container-paginacion {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 0.8rem;
+        margin-bottom: 0.1rem;
+    }
+
+    .pagination {
+        background: none;
+        padding: 0;
+        margin: 0;
+        gap: 0.2rem;
+    }
+
+        .pagination .page-item {
+            border-radius: 0.6rem;
+            overflow: hidden;
+        }
+
+        .pagination .page-link {
+            color: #b5838d;
+            background: #fff6f3;
+            border: 1.5px solid #f7b2ad;
+            border-radius: 0.6rem !important;
+            font-weight: 500;
+            font-size: 1.06rem;
+            padding: 0.41rem 1.04rem;
+            margin: 0 0.04rem;
+            transition: all 0.16s;
+            box-shadow: none;
+            outline: none;
+        }
+
+            .pagination .page-link:hover,
+            .pagination .page-link:focus {
+                color: #fff;
+                background: linear-gradient(90deg, #f4845f 0%, #f7b267 100%);
+                border-color: #f4845f;
+                text-decoration: none;
+            }
+
+        .pagination .page-item.active .page-link {
+            background: linear-gradient(90deg, #4ea8de 0%, #4361ee 100%);
+            color: #fff;
+            border-color: #4361ee;
+            font-weight: bold;
+            cursor: default;
+            pointer-events: none;
+        }
+</style>
+
+<div class="container-paginacion">
     @if (Model.TotalPaginas > 0)
     {
         <ul class="pagination justify-content-end">
@@ -9,7 +61,7 @@
                 <li class="page-item">
                     <a class="page-link" asp-controller="@(Model.Controlador)" asp-action="@(Model.Accion)" asp-route-pg="1">Primera</a>
                 </li>
-                <li>
+                <li class="page-item">
                     <a class="page-link" asp-controller="@(Model.Controlador)" asp-action="@(Model.Accion)" asp-route-pg="@(Model.PaginaActual - 1)">Anterior</a>
                 </li>
             }
@@ -24,7 +76,7 @@
                 <li class="page-item">
                     <a class="page-link" asp-controller="@(Model.Controlador)" asp-action="@(Model.Accion)" asp-route-pg="@(Model.PaginaActual + 1)">Siguiente</a>
                 </li>
-                <li>
+                <li class="page-item">
                     <a class="page-link" asp-controller="@(Model.Controlador)" asp-action="@(Model.Accion)" asp-route-pg="@(Model.TotalPaginas)">Última</a>
                 </li>
             }

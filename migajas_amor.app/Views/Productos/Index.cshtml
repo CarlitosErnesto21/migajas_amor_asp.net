@@ -1,77 +1,169 @@
 ﻿@model IEnumerable<migajas_amor.app.Models.Producto>
-@using migajas_amor.app.Utilidades;
 @{
-    ViewData["Title"] = "Index";
-
-    Paginacion paginacion = new Paginacion();
-    int paginaActual = 0;
-    if (ViewBag.Paginacion != null)
-    {
-        paginacion = ViewBag.Paginacion;
-        paginaActual = paginacion.PaginaActual;
-    }
+    ViewData["Title"] = "Productos";
 }
 
-<h1>Index</h1>
+<style>
+    .productos-box {
+        max-width: 1350px;
+        margin: 2.2rem auto 0 auto;
+        padding: 0 2.8rem 2.2rem 2.8rem;
+    }
 
-<p>
+    .productos-title {
+        font-family: 'Pacifico', cursive, 'Brush Script MT', sans-serif;
+        color: #b5838d;
+        font-size: 2.6rem;
+        letter-spacing: 1.2px;
+        margin-bottom: 0.6rem;
+        margin-top: 0.2rem;
+        text-align: left;
+    }
+
+    .crear-btn {
+        background: linear-gradient(90deg, #f7b267 0%, #f4845f 100%);
+        color: #fff;
+        border: none;
+        border-radius: 1rem;
+        font-weight: 600;
+        padding: 0.53rem 1.4rem;
+        font-size: 1.06rem;
+        box-shadow: 0 2px 8px rgba(244,132,95,0.14);
+        text-decoration: none;
+        transition: background 0.18s, color 0.18s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        margin-bottom: 1.3rem;
+        margin-top: 0.1rem;
+    }
+
+        .crear-btn:hover,
+        .crear-btn:focus {
+            background: linear-gradient(90deg, #f4845f 0%, #f7b267 100%);
+            color: #fff;
+            text-decoration: none;
+        }
+
+    .table-productos {
+        background: #fff6f3;
+        border-radius: 1.1rem;
+        box-shadow: 0 2px 10px rgba(186,104,200,0.07);
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+        margin-top: 0.7rem;
+        width: 100%;
+        table-layout: auto;
+    }
+
+        .table-productos th {
+            background: linear-gradient(90deg, #ffe5ec 0%, #e0c3fc 100%);
+            color: #b5838d;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            font-size: 1.05rem;
+            border: none;
+            text-align: center;
+            padding: 0.75rem 0.6rem;
+            white-space: nowrap;
+        }
+
+        .table-productos td {
+            color: #864879;
+            background: #fff;
+            border: none;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 1rem;
+            padding: 0.7rem 0.6rem;
+        }
+
+        .table-productos tr:not(:last-child) td {
+            border-bottom: 1px solid #f7b2ad;
+        }
+
+    .productos-btns {
+        display: flex;
+        gap: 0.3rem;
+        justify-content: center;
+    }
+
+    .productos-btn {
+        background: #fff6f3;
+        border: 1.2px solid #f7b2ad;
+        border-radius: 0.7rem;
+        color: #b5838d;
+        font-weight: 500;
+        padding: 0.28rem 0.9rem;
+        font-size: 0.97rem;
+        box-shadow: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.18s, color 0.18s, border 0.18s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.23rem;
+    }
+
+        .productos-btn i {
+            font-size: 1.02rem;
+            opacity: 0.82;
+        }
+
+        .productos-btn:hover,
+        .productos-btn:focus {
+            background: #ffe5ec;
+            color: #f4845f;
+            border-color: #f4845f;
+            text-decoration: none;
+        }
+</style>
+
+<div class="productos-box">
+    <div class="productos-title">Productos</div>
+
     @if (User.IsInRole("Administrador"))
     {
-        <a asp-action="Create">Create New</a>
+        <a asp-action="Create" class="crear-btn">
+            <i class="bi bi-plus-circle"></i> Agregar producto
+        </a>
     }
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Precio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stock)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaCreacion)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaCreacion)
-            </td>
-            <td>
-                @if (User.IsInRole("Administrador"))
-                    {
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    }|
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                @if (User.IsInRole("Administrador"))
-                    {
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    }
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-<partial name="_paginacion" model="@paginacion" /> 
+
+    <table class="table table-productos">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+                <th>@Html.DisplayNameFor(model => model.Precio)</th>
+                <th>@Html.DisplayNameFor(model => model.Stock)</th>
+                <th>@Html.DisplayNameFor(model => model.FechaCreacion)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Precio)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Stock)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FechaCreacion)</td>
+                    <td>
+                        <div class="productos-btns">
+                            @if (User.IsInRole("Administrador"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="productos-btn" title="Editar"><i class="bi bi-pencil"></i> Editar</a>
+                            }
+                            <a asp-action="Details" asp-route-id="@item.Id" class="productos-btn" title="Detalles"><i class="bi bi-eye"></i> Detalles</a>
+                            @if (User.IsInRole("Administrador"))
+                            {
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="productos-btn" title="Eliminar"><i class="bi bi-trash"></i> Eliminar</a>
+                            }
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

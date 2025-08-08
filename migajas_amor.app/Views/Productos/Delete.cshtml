@@ -4,48 +4,140 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<style>
+    .producto-delete-box {
+        max-width: 520px;
+        margin: 2.2rem auto 0 auto;
+        background: #fff6f3;
+        border-radius: 1.2rem;
+        box-shadow: 0 2px 12px rgba(186,104,200,0.11);
+        padding: 2.1rem 2.2rem 1.5rem 2.2rem;
+    }
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Producto</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
+    .producto-delete-title {
+        font-family: 'Pacifico', cursive, 'Brush Script MT', sans-serif;
+        color: #b5838d;
+        font-size: 2.2rem;
+        letter-spacing: 1.2px;
+        margin-bottom: 0.3rem;
+        margin-top: 0.1rem;
+        text-align: left;
+    }
+
+    .producto-delete-warning {
+        font-size: 1.18rem;
+        color: #f4845f;
+        font-family: 'Roboto', Arial, sans-serif;
+        font-weight: 600;
+        margin-bottom: 1.2rem;
+        letter-spacing: 0.2px;
+    }
+
+    .producto-delete-list dt {
+        color: #b5838d;
+        font-weight: bold;
+        font-size: 1.08rem;
+        font-family: 'Roboto', Arial, sans-serif;
+        padding-top: 0.5rem;
+    }
+
+    .producto-delete-list dd {
+        color: #864879;
+        font-size: 1.08rem;
+        font-family: 'Roboto', Arial, sans-serif;
+        padding-bottom: 0.21rem;
+        padding-left: 0.1rem;
+        margin-bottom: 0.32rem;
+        border-bottom: 1px solid #f7b2ad;
+    }
+
+        .producto-delete-list dd:last-of-type {
+            border-bottom: none;
+        }
+
+    .producto-delete-actions {
+        margin-top: 1.3rem;
+        display: flex;
+        gap: 0.7rem;
+        align-items: center;
+    }
+
+    .btn-eliminar {
+        background: linear-gradient(90deg, #ef233c 0%, #f4845f 100%);
+        color: #fff;
+        border: none;
+        border-radius: 0.9rem;
+        font-weight: 600;
+        font-size: 1.07rem;
+        padding: 0.5rem 1.3rem;
+        text-decoration: none;
+        transition: background 0.16s;
+        box-shadow: 0 2px 8px rgba(244,132,95,0.09);
+    }
+
+        .btn-eliminar:hover, .btn-eliminar:focus {
+            background: linear-gradient(90deg, #f4845f 0%, #ef233c 100%);
+            color: #fff;
+            text-decoration: none;
+        }
+
+    .producto-delete-back {
+        background: #fff6f3;
+        color: #b5838d;
+        border: 1.5px solid #f7b2ad;
+        border-radius: 0.9rem;
+        font-weight: 500;
+        font-size: 1.07rem;
+        padding: 0.5rem 1.3rem;
+        text-decoration: none;
+        transition: background 0.16s, color 0.16s;
+    }
+
+        .producto-delete-back:hover, .producto-delete-back:focus {
+            background: #f7b2ad;
+            color: #fff;
+            text-decoration: none;
+        }
+</style>
+
+<div class="producto-delete-box">
+    <div class="producto-delete-title">Eliminar Producto</div>
+    <div class="producto-delete-warning">¿Estás seguro que deseas eliminar este producto?</div>
+    <dl class="row producto-delete-list">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Nombre)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Nombre)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Descripcion)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Descripcion)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Precio)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Precio)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Stock)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Stock)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.FechaCreacion)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.FechaCreacion)
         </dd>
     </dl>
-    
-    <form asp-action="Delete">
+    <form asp-action="Delete" class="producto-delete-actions">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Eliminar" class="btn-eliminar" />
+        <a asp-action="Index" class="producto-delete-back">Volver a la lista</a>
     </form>
 </div>

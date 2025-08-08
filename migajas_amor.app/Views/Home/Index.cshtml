@@ -1,8 +1,124 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    body {
+        background: linear-gradient(120deg, #fceabb 0%, #f8bfae 100%);
+    }
+
+    .welcome-box {
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 2.2rem;
+        box-shadow: 0 8px 40px 0 rgba(186,104,200,0.12), 0 1.5px 5px 0 rgba(244,132,95,0.11);
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        padding: 3.5rem 2.5rem 2.8rem 2.5rem;
+        max-width: 950px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pastel-badge {
+        position: absolute;
+        top: -32px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(90deg, #f7b267 0%, #f4845f 100%);
+        border-radius: 50%;
+        box-shadow: 0 4px 24px rgba(244,132,95,0.10);
+        padding: 1.2rem;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+
+    .welcome-logo {
+        max-width: 78px;
+        max-height: 78px;
+        filter: drop-shadow(0 4px 16px rgba(0,0,0,0.10));
+        border-radius: 50%;
+        border: 4px solid #fff8f0;
+        background: #fff;
+    }
+
+    .welcome-title {
+        font-family: 'Pacifico', cursive, 'Brush Script MT', sans-serif;
+        color: #b5838d;
+        font-size: 2.7rem;
+        margin-top: 2.7rem;
+        margin-bottom: 0.2rem;
+        letter-spacing: 1.2px;
+        text-align: center;
+        text-shadow: 0 2px 8px #f8bfae77;
+    }
+
+    .welcome-subtitle {
+        color: #a1887f;
+        font-size: 1.18rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        font-weight: 500;
+        line-height: 1.6;
+    }
+
+    .welcome-details {
+        color: #864879;
+        font-size: 1.08rem;
+        text-align: center;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .welcome-divider {
+        width: 60px;
+        height: 5px;
+        border-radius: 6px;
+        background: linear-gradient(90deg, #f7b267 0%, #f4845f 100%);
+        margin: 1.2rem auto 1.6rem auto;
+        box-shadow: 0 2px 12px #f4845f22;
+    }
+
+    .panaderia-info {
+        background: linear-gradient(90deg, #ffe5ec 0%, #e0c3fc 100%);
+        border-radius: 1.2rem;
+        padding: 1.2rem 1rem;
+        margin-top: 0.6rem;
+        color: #b5838d;
+        font-weight: 500;
+        font-size: 1.02rem;
+        box-shadow: 0 4px 16px #e0c3fc24;
+        display: inline-block;
+        text-align: center;
+    }
+</style>
+
+<div class="welcome-box">
+    <div class="pastel-badge">
+        <img src="~/Images/logo.png" alt="Migajas de Amor Logo" class="welcome-logo" />
+    </div>
+    <div class="welcome-title">¡Bienvenido a Migajas de Amor!</div>
+    <div class="welcome-divider"></div>
+    <div class="welcome-subtitle">
+        La dulce tradición se une con la tecnología.<br />
+        Gestiona tu panadería de manera sencilla y profesional.
+    </div>
+    <div class="panaderia-info">
+        <i class="bi bi-cupcake"></i> Plataforma exclusiva para la panadería <b>Migajas de Amor</b>.<br />
+        <i class="bi bi-cart"></i> Administra productos, pedidos, clientes y proveedores.<br />
+        <i class="bi bi-graph-up-arrow"></i> Lleva el control y haz crecer tu negocio con eficiencia.
+    </div>
+    <div class="welcome-details">
+        Saborea la mejor experiencia digital: intuitiva, pastel y diseñada para que solo te ocupes de hornear felicidad.<br />
+        ¡Gracias por confiar en nosotros!
+    </div>
 </div>

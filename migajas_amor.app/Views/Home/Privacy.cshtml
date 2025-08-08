@@ -1,6 +1,160 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Política de Privacidad";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<style>
+    .privacy-box {
+        background: rgba(255, 255, 255, 0.97);
+        border-radius: 2.2rem;
+        box-shadow: 0 6px 32px 0 rgba(186,104,200,0.13), 0 1.5px 5px 0 rgba(244,132,95,0.15);
+        margin-top: 3.5rem;
+        margin-bottom: 2rem;
+        padding: 2.6rem 2.2rem 2.6rem 2.2rem;
+        max-width: 950px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        overflow: visible;
+    }
+
+    .privacy-title {
+        font-family: 'Pacifico', cursive, 'Brush Script MT', sans-serif;
+        color: #b5838d;
+        font-size: 2.3rem;
+        margin-bottom: 1.3rem;
+        text-align: center;
+        letter-spacing: 1.2px;
+    }
+
+    .privacy-sections {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .privacy-section {
+        flex: 1 1 330px;
+        min-width: 310px;
+        background: linear-gradient(120deg, #ffe5ec 0%, #e0c3fc 100%);
+        border-radius: 1.3rem;
+        box-shadow: 0 4px 16px #e0c3fc24;
+        padding: 1.7rem 1.2rem 1.5rem 1.2rem;
+        margin-bottom: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .privacy-section-title {
+        color: #b5838d;
+        font-size: 1.23rem;
+        font-weight: 700;
+        margin-bottom: 0.7rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+        .privacy-section-title i {
+            font-size: 1.3rem;
+            opacity: 0.85;
+        }
+
+    .privacy-text {
+        color: #864879;
+        font-size: 1.06rem;
+        font-weight: 500;
+        margin-bottom: 0.7rem;
+    }
+
+    .privacy-nav-btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        justify-content: center;
+        margin-top: 2.3rem;
+    }
+
+    .privacy-nav-btn {
+        background: #fff6f3;
+        border: 1.5px solid #f7b2ad;
+        border-radius: 0.8rem;
+        color: #b5838d;
+        font-weight: 500;
+        padding: 0.45rem 1.1rem;
+        font-size: 0.98rem;
+        box-shadow: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.18s, box-shadow 0.18s, color 0.18s, border 0.18s;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+        .privacy-nav-btn i {
+            color: #b5838d;
+            font-size: 1.08rem;
+            opacity: 0.82;
+            transition: color 0.18s;
+        }
+
+        .privacy-nav-btn:hover,
+        .privacy-nav-btn:focus {
+            background: #ffe5ec;
+            color: #f4845f;
+            border-color: #f4845f;
+            box-shadow: 0 2px 10px rgba(244, 132, 95, 0.07);
+            text-decoration: none;
+        }
+
+            .privacy-nav-btn:hover i,
+            .privacy-nav-btn:focus i {
+                color: #f4845f;
+            }
+</style>
+
+<div class="privacy-box">
+    <div class="privacy-title">@ViewData["Title"]</div>
+    <div class="privacy-sections">
+
+        <div class="privacy-section">
+            <div class="privacy-section-title"><i class="bi bi-person-lock"></i> Acceso a la información</div>
+            <div class="privacy-text">
+                Como empleado o administrador, puedes consultar datos de clientes, pedidos, proveedores, inventario y usuarios. El acceso depende de tu rol y siempre es monitoreado para garantizar la seguridad.
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <div class="privacy-section-title"><i class="bi bi-shield-lock"></i> Uso responsable</div>
+            <div class="privacy-text">
+                La información a la que accedes es confidencial y solo debe emplearse para la gestión interna de Migajas de Amor. Queda prohibido su uso o divulgación con fines externos.
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <div class="privacy-section-title"><i class="bi bi-shield-check"></i> Protección y confidencialidad</div>
+            <div class="privacy-text">
+                Los datos están protegidos con sistemas de seguridad digital; tú eres responsable de mantener su confidencialidad y reportar cualquier incidente.
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <div class="privacy-section-title"><i class="bi bi-people"></i> Compromiso profesional</div>
+            <div class="privacy-text">
+                Al usar la plataforma, te comprometes a respetar la privacidad de los datos y a contribuir a un ambiente de trabajo seguro y profesional.
+            </div>
+        </div>
+
+    </div>
+    <div class="privacy-nav-btns">
+        <a class="privacy-nav-btn" asp-area="" asp-controller="Home" asp-action="Index"><i class="bi bi-house"></i> Inicio</a>
+        <a class="privacy-nav-btn" asp-area="" asp-controller="Productos" asp-action="Index"><i class="bi bi-basket"></i> Productos</a>
+        <a class="privacy-nav-btn" asp-area="" asp-controller="Proveedores" asp-action="Index"><i class="bi bi-truck"></i> Proveedores</a>
+        <a class="privacy-nav-btn" asp-area="" asp-controller="Acceso" asp-action="ListPedidos"><i class="bi bi-journal"></i> Pedidos</a>
+        <a class="privacy-nav-btn" asp-area="" asp-controller="Acceso" asp-action="ListaClientes"><i class="bi bi-people"></i> Clientes</a>
+        <a class="privacy-nav-btn" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="bi bi-shield-lock"></i> Esta Política</a>
+    </div>
+</div>

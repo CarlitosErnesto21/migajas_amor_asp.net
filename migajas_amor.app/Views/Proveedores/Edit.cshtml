@@ -4,46 +4,133 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<style>
+    .proveedor-edit-box {
+        max-width: 520px;
+        margin: 2.2rem auto 0 auto;
+        background: #fff6f3;
+        border-radius: 1.2rem;
+        box-shadow: 0 2px 12px rgba(186,104,200,0.11);
+        padding: 2.1rem 2.2rem 1.5rem 2.2rem;
+    }
 
-<h4>Proveedore</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Telefono" class="control-label"></label>
-                <input asp-for="Telefono" class="form-control" />
-                <span asp-validation-for="Telefono" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Direccion" class="control-label"></label>
-                <input asp-for="Direccion" class="form-control" />
-                <span asp-validation-for="Direccion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+    .proveedor-edit-title {
+        font-family: 'Pacifico', cursive, 'Brush Script MT', sans-serif;
+        color: #b5838d;
+        font-size: 2.2rem;
+        letter-spacing: 1.2px;
+        margin-bottom: 0.4rem;
+        margin-top: 0.1rem;
+        text-align: left;
+    }
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    .proveedor-edit-subtitle {
+        font-size: 1.25rem;
+        color: #a66eb8;
+        font-family: 'Roboto', Arial, sans-serif;
+        margin-bottom: 1.1rem;
+        font-weight: 500;
+    }
+
+    .proveedor-edit-form .form-group label {
+        color: #864879;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.2rem;
+    }
+
+    .proveedor-edit-form .form-control {
+        border-radius: 0.7rem;
+        border: 1.5px solid #f7b2ad;
+        padding: 0.53rem 1rem;
+        font-size: 1.07rem;
+        color: #864879;
+        background: #fff;
+        margin-bottom: 0.15rem;
+        box-shadow: 0 1px 4px rgba(186,104,200,0.06);
+        transition: border-color 0.14s;
+    }
+
+        .proveedor-edit-form .form-control:focus {
+            border-color: #b5838d;
+            outline: none;
+            background: #fffdfa;
+        }
+
+    .proveedor-edit-form .text-danger {
+        font-size: 0.97rem;
+        color: #f4845f !important;
+    }
+
+    .proveedor-edit-form .btn-guardar {
+        background: linear-gradient(90deg, #f7b267 0%, #f4845f 100%);
+        color: #fff;
+        border: none;
+        border-radius: 0.9rem;
+        font-weight: 600;
+        font-size: 1.07rem;
+        padding: 0.5rem 1.6rem;
+        margin-top: 0.6rem;
+        box-shadow: 0 2px 8px rgba(244,132,95,0.09);
+        transition: background 0.16s;
+    }
+
+        .proveedor-edit-form .btn-guardar:hover, .proveedor-edit-form .btn-guardar:focus {
+            background: linear-gradient(90deg, #f4845f 0%, #f7b267 100%);
+            color: #fff;
+        }
+
+    .proveedor-edit-back {
+        display: inline-block;
+        margin-top: 0.7rem;
+        color: #b5838d;
+        font-weight: 500;
+        text-decoration: none;
+        font-size: 1.06rem;
+        transition: color 0.16s;
+    }
+
+        .proveedor-edit-back:hover {
+            color: #f4845f;
+            text-decoration: underline;
+        }
+</style>
+
+<div class="proveedor-edit-box">
+    <div class="proveedor-edit-title">Editar Proveedor</div>
+    <div class="proveedor-edit-subtitle">Modifica los datos del proveedor</div>
+    <form asp-action="Edit" class="proveedor-edit-form">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="Nombre" class="control-label"></label>
+            <input asp-for="Nombre" class="form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Telefono" class="control-label"></label>
+            <input asp-for="Telefono" class="form-control" />
+            <span asp-validation-for="Telefono" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="control-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Direccion" class="control-label"></label>
+            <input asp-for="Direccion" class="form-control" />
+            <span asp-validation-for="Direccion" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-guardar" />
+        </div>
+    </form>
+    <a asp-action="Index" class="proveedor-edit-back">&larr; Volver a la lista</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

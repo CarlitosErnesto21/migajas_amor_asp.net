@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Clientes ";
 
-
     Paginacion paginacion = new Paginacion();
     int paginaActual = 0;
     if (ViewBag.Paginacion != null)
@@ -13,36 +12,100 @@
     }
 
     var search = Context.Request.Query["search"].ToString();
-
 }
 
-<h2>Clientes</h2>
+<style>
+    .clientes-box {
+        max-width: 1350px;
+        margin: 2.2rem auto 0 auto;
+        padding: 0 2.8rem 2.2rem 2.8rem;
+    }
 
-@await Html.PartialAsync("_CuadroBusqueda", search)
+    .clientes-title {
+        font-family: 'Pacifico', cursive, 'Brush Script MT', sans-serif;
+        color: #b5838d;
+        font-size: 2.6rem;
+        letter-spacing: 1.2px;
+        margin-bottom: 0.05rem;
+        margin-top: 0.05rem;
+        text-align: left;
+    }
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Telefono</th>
-            <th>Email</th>
-            <th>Direcion</th>
-            <th>Fecha De Registro</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var cliente in Model)
-        {
-            <tr>
-                <td>@cliente.Nombre</td>
-                <td>@cliente.Apellido</td>
-                <td>@cliente.Telefono</td>
-                <td>@cliente.Email</td>
-                <td>@cliente.Direccion</td>
-                <td>@cliente.FechaRegistro</td>
-            </tr>
+    .busqueda-align-right {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 0.05rem;
+    }
+
+    .table-clientes {
+        background: #fff6f3;
+        border-radius: 1.1rem;
+        box-shadow: 0 2px 10px rgba(186,104,200,0.07);
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+        margin-top: 0.05rem;
+        width: 100%;
+        table-layout: auto;
+    }
+
+        .table-clientes th {
+            background: linear-gradient(90deg, #ffe5ec 0%, #e0c3fc 100%);
+            color: #b5838d;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            font-size: 1.05rem;
+            border: none;
+            text-align: center;
+            padding: 0.75rem 0.6rem;
+            white-space: nowrap;
         }
-    </tbody>
-</table>
-<partial name="_paginacion" model="@paginacion" /> 
+
+        .table-clientes td {
+            color: #864879;
+            background: #fff;
+            border: none;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 1rem;
+            padding: 0.7rem 0.6rem;
+        }
+
+        .table-clientes tr:not(:last-child) td {
+            border-bottom: 1px solid #f7b2ad;
+        }
+</style>
+
+<div class="clientes-box">
+    <div class="clientes-title">Clientes</div>
+
+    <div class="busqueda-align-right">
+        @await Html.PartialAsync("_CuadroBusqueda", search)
+    </div>
+
+    <table class="table table-clientes">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Dirección</th>
+                <th>Fecha De Registro</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cliente in Model)
+            {
+                <tr>
+                    <td>@cliente.Nombre</td>
+                    <td>@cliente.Apellido</td>
+                    <td>@cliente.Telefono</td>
+                    <td>@cliente.Email</td>
+                    <td>@cliente.Direccion</td>
+                    <td>@cliente.FechaRegistro</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <partial name="_paginacion" model="@paginacion" />
+</div>
