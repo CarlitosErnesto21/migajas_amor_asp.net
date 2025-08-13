@@ -1,12 +1,87 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\ernes\\Documents\\M\u00D3DULOS\\Construcci\u00F3n de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaS\u00EDntesis\\migajas_amor_asp.net\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{877489F0-6501-469A-8594-2D7B862B81A8}|migajas_amor.app\\migajas_amor.app.csproj|c:\\users\\ernes\\documents\\m\u00F3dulos\\construcci\u00F3n de aplicaciones web en asp.net\\clases\\sumativas\\sumativas\u00EDntesis\\migajas_amor_asp.net\\migajas_amor.app\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{877489F0-6501-469A-8594-2D7B862B81A8}|migajas_amor.app\\migajas_amor.app.csproj|solutionrelative:migajas_amor.app\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877489F0-6501-469A-8594-2D7B862B81A8}|migajas_amor.app\\migajas_amor.app.csproj|c:\\users\\ernes\\documents\\m\u00F3dulos\\construcci\u00F3n de aplicaciones web en asp.net\\clases\\sumativas\\sumativas\u00EDntesis\\migajas_amor_asp.net\\migajas_amor.app\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{877489F0-6501-469A-8594-2D7B862B81A8}|migajas_amor.app\\migajas_amor.app.csproj|solutionrelative:migajas_amor.app\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877489F0-6501-469A-8594-2D7B862B81A8}|migajas_amor.app\\migajas_amor.app.csproj|c:\\users\\ernes\\documents\\m\u00F3dulos\\construcci\u00F3n de aplicaciones web en asp.net\\clases\\sumativas\\sumativas\u00EDntesis\\migajas_amor_asp.net\\migajas_amor.app\\pdf\\detallepedidopdfdoc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{877489F0-6501-469A-8594-2D7B862B81A8}|migajas_amor.app\\migajas_amor.app.csproj|solutionrelative:migajas_amor.app\\pdf\\detallepedidopdfdoc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877489F0-6501-469A-8594-2D7B862B81A8}|migajas_amor.app\\migajas_amor.app.csproj|c:\\users\\ernes\\documents\\m\u00F3dulos\\construcci\u00F3n de aplicaciones web en asp.net\\clases\\sumativas\\sumativas\u00EDntesis\\migajas_amor_asp.net\\migajas_amor.app\\models\\migajasamorcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{877489F0-6501-469A-8594-2D7B862B81A8}|migajas_amor.app\\migajas_amor.app.csproj|solutionrelative:migajas_amor.app\\models\\migajasamorcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccesoController.cs",
+              "DocumentMoniker": "C:\\Users\\ernes\\Documents\\M\u00D3DULOS\\Construcci\u00F3n de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaS\u00EDntesis\\migajas_amor_asp.net\\migajas_amor.app\\Controllers\\AccesoController.cs",
+              "RelativeDocumentMoniker": "migajas_amor.app\\Controllers\\AccesoController.cs",
+              "ToolTip": "C:\\Users\\ernes\\Documents\\M\u00D3DULOS\\Construcci\u00F3n de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaS\u00EDntesis\\migajas_amor_asp.net\\migajas_amor.app\\Controllers\\AccesoController.cs",
+              "RelativeToolTip": "migajas_amor.app\\Controllers\\AccesoController.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAwwLIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T03:06:28.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductosController.cs",
+              "DocumentMoniker": "C:\\Users\\ernes\\Documents\\M\u00D3DULOS\\Construcci\u00F3n de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaS\u00EDntesis\\migajas_amor_asp.net\\migajas_amor.app\\Controllers\\ProductosController.cs",
+              "RelativeDocumentMoniker": "migajas_amor.app\\Controllers\\ProductosController.cs",
+              "ToolTip": "C:\\Users\\ernes\\Documents\\M\u00D3DULOS\\Construcci\u00F3n de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaS\u00EDntesis\\migajas_amor_asp.net\\migajas_amor.app\\Controllers\\ProductosController.cs",
+              "RelativeToolTip": "migajas_amor.app\\Controllers\\ProductosController.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T03:06:23.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DetallePedidoPdfDoc.cs",
+              "DocumentMoniker": "C:\\Users\\ernes\\Documents\\M\u00D3DULOS\\Construcci\u00F3n de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaS\u00EDntesis\\migajas_amor_asp.net\\migajas_amor.app\\Pdf\\DetallePedidoPdfDoc.cs",
+              "RelativeDocumentMoniker": "migajas_amor.app\\Pdf\\DetallePedidoPdfDoc.cs",
+              "ToolTip": "C:\\Users\\ernes\\Documents\\M\u00D3DULOS\\Construcci\u00F3n de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaS\u00EDntesis\\migajas_amor_asp.net\\migajas_amor.app\\Pdf\\DetallePedidoPdfDoc.cs",
+              "RelativeToolTip": "migajas_amor.app\\Pdf\\DetallePedidoPdfDoc.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T16:58:48.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MigajasAmorContext.cs",
+              "DocumentMoniker": "C:\\Users\\ernes\\Documents\\M\u00D3DULOS\\Construcci\u00F3n de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaS\u00EDntesis\\migajas_amor_asp.net\\migajas_amor.app\\Models\\MigajasAmorContext.cs",
+              "RelativeDocumentMoniker": "migajas_amor.app\\Models\\MigajasAmorContext.cs",
+              "ToolTip": "C:\\Users\\ernes\\Documents\\M\u00D3DULOS\\Construcci\u00F3n de Aplicaciones Web en ASP.NET\\Clases\\Sumativas\\SumativaS\u00EDntesis\\migajas_amor_asp.net\\migajas_amor.app\\Models\\MigajasAmorContext.cs",
+              "RelativeToolTip": "migajas_amor.app\\Models\\MigajasAmorContext.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAA+wCwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T18:32:25.974Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
